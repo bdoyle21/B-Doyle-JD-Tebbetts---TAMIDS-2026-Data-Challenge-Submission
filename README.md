@@ -2,9 +2,13 @@
 
 NFL Defensive End Draft & Performance Prediction
 This repository contains the code and data for a machine learning-driven analysis of NFL Defensive End prospects, developed as part of a data challenge by Benjamin P. Doyle, CSCS and John D. Tebbetts, MS (Department of Kinesiology & Sport Management, Texas A&M University). The project investigates whether NFL Combine physical performance metrics and college football statistics can predict both draft outcomes and professional success for the DE position.
+
 Data
 Two datasets are included. pre_nfl.csv contains NFL Scouting Combine data (2010–2025) for defensive ends, including anthropometric measurements, physical performance test results, calculated variables (momentum and maximal anaerobic power), and draft outcome labels. nfl_data.csv contains career NFL defensive statistics and a derived impact score — defined as career sacks plus tackles for loss divided by games played, log-transformed — used as the primary measure of professional success.
+
+
 Analysis Overview
-All analysis is contained in combined_analysis.py. The pipeline covers four main stages: (1) Exploratory Factor Analysis to extract four latent performance constructs (Power, Momentum, Production, and Change of Direction); (2) Gaussian Mixture Model clustering to probabilistically assign players to one of three archetypes (Average, Size-Dominant, and Power-Dominant); (3) Binary logistic regression to predict NFL Draft status from both raw features and factor scores; and (4) Elastic net regression with optional recursive feature elimination to predict NFL impact scores across 1,000 Monte Carlo iterations.
+All analysis is contained in final_analysis.py. The pipeline covers four main stages: (1) Exploratory Factor Analysis to extract four latent performance constructs (Power, Momentum, Production, and Change of Direction); (2) Gaussian Mixture Model clustering to probabilistically assign players to one of three archetypes (Average, Size-Dominant, and Power-Dominant); (3) Binary logistic regression to predict NFL Draft status from both raw features and factor scores; and (4) Elastic net regression with optional recursive feature elimination to predict NFL impact scores across 1,000 Monte Carlo iterations.
+
 Key Findings
 Power, Momentum, and college Production were significantly associated with draft probability, while Change of Direction showed no meaningful predictive value. Impact score models explained 14–20% of outcome variance, with the best-performing model requiring only two features — momentum and solo tackles — suggesting most combine metrics are largely redundant. Archetype assignment did not significantly predict draft frequency or NFL production, though the framework offers practical utility for roster construction and player development planning.
